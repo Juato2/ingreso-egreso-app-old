@@ -4,11 +4,16 @@
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
-              <form action="#">
+              <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
                 <div class="form-group">
                   <label class="label">Usuario</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Usuario">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Correo"
+                           ngModel
+                           name="email"
+                           required>
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -19,7 +24,12 @@
                 <div class="form-group">
                   <label class="label">Contraseña</label>
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="*********">
+                    <input type="password"
+                           class="form-control"
+                           placeholder="*********"
+                           ngModel
+                           name="password"
+                           required>
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -28,7 +38,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary submit-btn btn-block">Login</button>
+                  <button [disabled]="!f.valid" type="submit" class="btn btn-primary submit-btn btn-block">Login</button>
                 </div>
                 <div class="form-group d-flex justify-content-between">
                   <div class="form-check form-check-flat mt-0">
