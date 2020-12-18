@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class AuthGuardService implements CanActivate {
 
   constructor(public authService: AuthService) { }
 
-  canActivate() {
+  canActivate(): Observable<boolean> {
     return this.authService.isAuth();
   }
 }
